@@ -1,11 +1,6 @@
 <% content_for :head do %>
   <title>Tweeter- Clone</title>
   <link rel="stylesheet" href="index.scss">
-  <%
-=begin%>
- <%= stylesheet_link_tag "index" %> 
-<%
-=end%>
 <% end %>
 
 <body>
@@ -33,6 +28,10 @@
                 </div>
             </div>
         </section>
+          <% flash.each do |key, value| %>
+    <%= content_tag(:div,value,class:key) %>
+    <br>
+<% end %>
     </main>
     <footer>
       <p> Copyright  ©</p>
