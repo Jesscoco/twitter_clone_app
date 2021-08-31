@@ -15,9 +15,9 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.content %></td>
-        <td><%= link_to "Show" %></td>
+        <td><%= link_to "Show" , post_path(post.id) %></td>
         <td><%= link_to "Edit" %></td>
-        <td><%= link_to "Destroy" %></td>
+        <td><%= link_to "Destroy" , post ,method: "delete", data: {confirm: "Etes vous sur de vouloir supprimer?"} %> </td>
       </tr>
     <% end %>
   </tbody>

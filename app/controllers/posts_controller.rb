@@ -16,12 +16,16 @@ class PostsController < ApplicationController
       render :new
      else
        if @post.save
-         flash[:notice] = " Eleve ajoute avec succes" 
+         flash[:notice] = " Tweet posté avec succès" 
          redirect_to posts_path
        else
          render new_post_path
        end
      end
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private

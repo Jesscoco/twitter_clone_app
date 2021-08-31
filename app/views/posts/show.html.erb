@@ -1,0 +1,11 @@
+<h1>Contenu du tweet</h1>
+<div class="content-tweet"> 
+    <p> Contenu: <%= @post.content %> </p>       
+    <%= link_to "Back", posts_path %>
+    <%= link_to "Edit" %>
+    <% flash.each do |key, value| %>
+    <%= content_tag(:div,value,class:key) %>
+    <br>
+    <% end %>
+</div>
+
