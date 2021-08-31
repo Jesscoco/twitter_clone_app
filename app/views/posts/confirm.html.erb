@@ -6,6 +6,8 @@
 <%= form_with(model: @post, local: true , url: posts_path) do |form| %>
     <%= form.hidden_field :content %>  
   <br>
-    <%= form.submit  "Enregistrer" %>
-    <%= form.submit  "Retour" , name: 'Retour' %>
+    <div class="buttons">
+        <%= form.submit  "Enregistrer" %>
+        <%= form.submit  "Retour" , name: 'Retour' %>
+    </div>
 <% end %>
