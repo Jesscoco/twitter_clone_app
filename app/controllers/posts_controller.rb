@@ -31,8 +31,21 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     flash[:danger] = " Tweet supprime" 
-     redirect_to posts_path if @post.destroy
-    
+    redirect_to posts_path if @post.destroy
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:notice] = " Tweet modifié avec succès" 
+      redirect_to post_path
+    else
+      render :edit 
+    end
   end
   private
   def post_params
