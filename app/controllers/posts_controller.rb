@@ -47,6 +47,11 @@ class PostsController < ApplicationController
       render :edit 
     end
   end
+
+  def confirm
+    @post = Post.new(post_params)
+    render :new if @post.invalid?
+  end
   private
   def post_params
     params.require(:post).permit(:content)

@@ -1,27 +1,2 @@
   <h1> Poster un tweet</h1>
-<% content_for :head do %>
-  <link rel="stylesheet" href="new.scss">
-<% end %>
-<%= form_with(model: @post, local: true) do |form| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2> il y a <%= @post.errors.count %> erreurs</h2>
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <div class="post-tweet">
-        <tr >
-            <td><%= form.label :"Post un tweet" %></td>
-            <td><%= form.text_field :content %> </td>
-        </tr>
-           <div class="buttons">
-                <button> <%= form.submit  "Poster" %> </button>
-                <button> <%= link_to "Retour" , posts_path %> </button>
-            </div>  
-    </div>
-  <br>
-  <% end %>
+  <%= render 'form' %>

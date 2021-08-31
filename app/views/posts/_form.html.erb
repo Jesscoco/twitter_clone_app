@@ -1,0 +1,26 @@
+<%= form_with(model: @post, local: true , url: choose_new_or_edit) do |form| %>
+    <% content_for :head do %>
+    <link rel="stylesheet" href="new.scss">
+    <% end %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2> il y a <%= @post.errors.count %> erreurs</h2>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="post-tweet">
+        <tr >
+            <td><%= form.label :"Post un tweet" %></td>
+            <td><%= form.text_field :content %> </td>
+        </tr>
+           <div class="buttons post-tweet">
+                <button> <%= form.submit  "Poster" %> </button>
+                <button> <%= link_to "Retour" , posts_path %> </button>
+                <% end %>
+            </div>  
+    </div>
+  <br>
